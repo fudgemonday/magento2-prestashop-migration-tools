@@ -16,8 +16,8 @@ SELECT
     END as visibility,
     sav.quantity,
     prd.minimal_quantity,
-    IF (prd.out_of_stock = 1,'1','0') as backorders,
     IF (sav.quantity = 0,'0','1') as is_in_stock,
+    IF (prd.out_of_stock = 1,'1','0') as backorders,
     CASE 
         WHEN prdshop.cache_default_attribute = '0' THEN 'simple'
         WHEN prd.is_virtual = '1' THEN 'virtual'

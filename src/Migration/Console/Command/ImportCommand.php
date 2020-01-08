@@ -114,6 +114,9 @@ class ImportCommand extends Command
         $typeArgument = $input->getArgument(self::INPUT_KEY_TYPE);
         $this->emulation = $this->objectManager->create(Emulation::class);
         $this->state = $this->objectManager->create(State::class);
+        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_FRONTEND); 
+        //$this->state->setAreaCode(\Magento\Framework\App\Area::AREA_GLOBAL);
+
         /** @see Memory temporary patch **/
         if (function_exists('ini_set')) {
             @ini_set('memory_limit', '512M');

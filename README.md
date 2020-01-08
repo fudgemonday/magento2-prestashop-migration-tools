@@ -7,11 +7,11 @@
 You can get library through [composer](https://getcomposer.org/)
 
 ```
-composer require mimou78/magento2-prestashop-migration-tools
+composer require fudgemonday/magento2-prestashop-migration-tools
 ```
 
 ```
-php bin/magento setup:update
+php bin/magento setup:upgrade
 ```
 
 Done!
@@ -25,9 +25,11 @@ Copy the csv in pub/media/flow/input
 And execute the commande
 
 ```
- php bin/magento mimlab:flow:import catalog
- php bin/magento mimlab:flow:import customer
- php bin/magento mimlab:flow:import order
+ php bin/magento mimlab:flow:import stores_view --dir /var/www/pub/media/flow/input/
+ php bin/magento mimlab:flow:import catalog_categories --dir /var/www/pub/media/flow/input/
+ php bin/magento mimlab:flow:import catalog_products --dir /var/www/pub/media/flow/input/
+ php bin/magento mimlab:flow:import customer --dir /var/www/pub/media/flow/input/
+ php bin/magento mimlab:flow:import order --dir /var/www/pub/media/flow/input/
 ```
 
 ## License
