@@ -37,6 +37,7 @@ class ImportProductCommand extends ImportCommand
         ObjectManagerInterface $objectManager,
         $name = null
     ) {
+        
         $this->productFactory = $productFactory;
         parent::__construct($objectManager, $name);
     }

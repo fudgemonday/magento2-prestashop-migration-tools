@@ -56,7 +56,7 @@ class ImportCommand extends Command
      * ImportCommand constructor.
      *
      * @param ObjectManagerInterface $objectManager
-     * @param type $name
+     * @param string $name
      */
     public function __construct(
         ObjectManagerInterface $objectManager,
@@ -139,9 +139,6 @@ class ImportCommand extends Command
                     break;
                 case ImportProductMedia::TYPE_IMPORT:
                     $importCommand = $this->objectManager->create(ImportProductMedia::class);
-                    break;
-                case ImportChildProduct::TYPE_IMPORT:
-                    $importCommand = $this->objectManager->create(ImportChildProduct::class);
                     break;
                 case ImportCustomerCommand::TYPE_IMPORT:
                     $importCommand = $this->objectManager->create(ImportCustomerCommand::class);
