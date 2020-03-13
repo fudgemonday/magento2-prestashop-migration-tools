@@ -32,6 +32,8 @@ class Order extends AbstractImport
                 "currency",
                 "shipping_address",
                 "billing_address",
+                "created_at",
+                "ext_order_id",
             ]
         );
         $this->optionsResolver->setDefined(
@@ -132,9 +134,13 @@ class Order extends AbstractImport
                 $shippingAddress = $quote->getShippingAddress();
                 $shippingAddress->setCollectShippingRates(true)
                         ->collectShippingRates()
-                        ->setShippingMethod('freeshipping_freeshipping');
+                        ->setShippingMethod('flatrate_flatrate');
                 $quote->assignCustomer($customer);
-                $quote->setPaymentMethod('checkmo');
+
+                // Set Sales Order Payment 
+
+                $quote->setPaymentMethod('banktransfer');
+                $quote->getPayment()->importData(['method' => 'banktransfer']);
                 $quote->setInventoryProcessed(false);
                 $quote->save();
                 

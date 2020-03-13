@@ -5,7 +5,9 @@ SELECT
     `id_cart`,
     `id_currency`,
     `id_address_delivery`,
-    `id_address_invoice`
+    `id_address_invoice`,
+    `date_upd`,
+    `reference`
 FROM 
     `ps_orders` AS o 
 LEFT JOIN ps_lang AS l ON l.id_lang = o.id_lang
